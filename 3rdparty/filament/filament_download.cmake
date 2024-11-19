@@ -13,8 +13,8 @@ else()
     set(lib_dir lib)
     # Setup download links
     if(WIN32)
-        set(FILAMENT_URL https://github.com/google/filament/releases/download/v1.9.9/filament-v1.9.9-windows.tgz)
-        set(FILAMENT_SHA256 3a937a54a0c6b693c833737878761f8ba8ee02744be3c2f9ec33b1c6399ba31b)
+        set(FILAMENT_URL https://github.com/google/filament/releases/download/v1.25.2/filament-v1.25.2-windows.tgz)
+        set(FILAMENT_SHA256 a7eb4923f176ea466e3bd49e75aaad7543c88ff1a795db51c3974e66d5d1002a)
         # Required for filament v1.9.9
         # Older versions of filament do not contain vkshaders.
         # They also have a different directory structure.
@@ -27,14 +27,14 @@ else()
         endif()
     elseif(APPLE)
         if (APPLE_AARCH64)
-            set(FILAMENT_URL https://github.com/isl-org/open3d_downloads/releases/download/filament/filament-v1.9.19-macos_arm64.tgz)
-            set(FILAMENT_SHA256 3422bdff451d90144fbb69e625d8dcaeaf3222dc2c28879536067937955bc362)
+            set(FILAMENT_URL https://github.com/google/filament/releases/download/v1.25.2/filament-v1.25.2-mac.tgz)
+            set(FILAMENT_SHA256 3e847941a7db2b989f9a48b67f17c45ca8fb740fe1a83ea04869af7894fc52c4)
             string(APPEND lib_dir /arm64)
             # Our arm64 builds use FILAMENT_SUPPORTS_VULKAN=OFF
             list(REMOVE_ITEM filament_LIBRARIES bluevk)
         else()
-            set(FILAMENT_URL https://github.com/google/filament/releases/download/v1.9.19/filament-v1.9.19-mac.tgz)
-            set(FILAMENT_SHA256 2765d0ce60647fc17d1880c4618cf7d6b5343d8be4dad87978c3917d9c723b4e)
+            set(FILAMENT_URL https://github.com/google/filament/releases/download/v1.25.2/filament-v1.25.2-mac.tgz)
+            set(FILAMENT_SHA256 3e847941a7db2b989f9a48b67f17c45ca8fb740fe1a83ea04869af7894fc52c4)
             string(APPEND lib_dir /x86_64)
         endif()
     else()      # Linux: Check glibc version and use open3d filament binary if new (Ubuntu 20.04 and similar)
@@ -42,14 +42,14 @@ else()
         string(REGEX MATCH "([0-9]+\.)+[0-9]+" glibc_version ${ldd_version})
         if(${glibc_version} VERSION_LESS "2.31")
             set(FILAMENT_URL
-                https://github.com/isl-org/open3d_downloads/releases/download/filament/filament-v1.9.19-linux.tgz)
-            set(FILAMENT_SHA256 f0c0b05a543dd0c82b1cd571957a90f28e72cfeee36d19a527c17ac9de4733d5)
+                https://github.com/google/filament/releases/download/v1.25.2/filament-v1.25.2-linux.tgz)
+            set(FILAMENT_SHA256 4d21630829383c25517ea7c0eb23ec2097fc0d8938680669b261b574b553caa5)
             message(STATUS "GLIBC version ${glibc_version} found: Using "
                 "Google Filament binary.")
         else()
             set(FILAMENT_URL
-                https://github.com/isl-org/open3d_downloads/releases/download/filament/filament-v1.9.19-linux-20.04.tgz)
-            set(FILAMENT_SHA256 c756fd76f5c6a40ca554f8c3cca424354a2a22ea6fce3c8ea893d4c4aa39514c)
+                https://github.com/google/filament/releases/download/v1.25.2/filament-v1.25.2-linux.tgz)
+            set(FILAMENT_SHA256 4d21630829383c25517ea7c0eb23ec2097fc0d8938680669b261b574b553caa5)
             message(STATUS "GLIBC version ${glibc_version} found: Using "
                 "Open3D Filament binary.")
         endif()
