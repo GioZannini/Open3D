@@ -52,7 +52,7 @@ endif()
 ExternalProject_Add(
     ext_filament
     PREFIX filament
-    URL  https://github.com/isl-org/filament/archive/98f0c617ac61424c1ebfee26f9d51c3d13c80d6c.tar.gz
+    URL  https://github.com/GioZannini/filament/archive/98f0c617ac61424c1ebfee26f9d51c3d13c80d6c.tar.gz
     URL_HASH SHA256=714522eeaf9c59ba7774e21a85b4a62a6cc3f867303503783ce453267f2da225
     DOWNLOAD_DIR "${OPEN3D_THIRD_PARTY_DOWNLOAD_DIR}/filament"
     UPDATE_COMMAND ""
